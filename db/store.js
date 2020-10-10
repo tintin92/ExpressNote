@@ -1,33 +1,35 @@
-const uuid = require("uuid");
 const fs = require("fs");
+const uuid = require("uuid");
+const util = require("util");
 const { stringify } = require("querystring");
 const readFileAsync = util.promisify(fs.readFile);
-const writeFileAsync = util.promisfy(fs.writeFile);
+const writeFileAsync = util.promisify(fs.writeFile);
 //Store and retrieve notes used to store and retrieve notes using fs module.   
+
 class Store {
 
     read() {
-        return readFileAsync("./db/db.json", "utf-8");
-    };
-
+        return readFileAsync("db/db.json", "utf-8");
+    }
     write(note) {
-        return writeFileAsync("./db/db.json", JSON.stringify(notes));
-    };
-    
-    del(id) {
-        return this.getNotes().then(notes => {
-            notes.filter(note => {
-                note.id !== id;
+        return writeFileAsync("/db/db.json", JSON.stringify(note));
+    // }
+    // addNote(note) {
+    //     return this.read()
+    //         .then((data) => JSON.parse(data))
+    //         .then((notes) => [...notes, note])
+    //         .then((newNotes) => this.write(newNotes));
+    // }
 
-            }).then(notesLeft => {
-                this.write(notesLeft);
-            })
-        })
-    };
+    // del(id) {
+    //     return this.getNotes().then(note => {
+    //         note.filter(note => {
+    //             note.id !== id;
 
-    // Unique id
-    uuid();
+    //         }).then(notes => {
+    //             this.write(notes);
+    // });
+
 }
-
 module.exports = new Store();
 
