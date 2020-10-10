@@ -13,23 +13,24 @@ class Store {
     }
     write(note) {
         return writeFileAsync("/db/db.json", JSON.stringify(note));
-    // }
-    // addNote(note) {
-    //     return this.read()
-    //         .then((data) => JSON.parse(data))
-    //         .then((notes) => [...notes, note])
-    //         .then((newNotes) => this.write(newNotes));
-    // }
+        // }
+        // addNote(note) {
+        //     return this.read()
+        //         .then((data) => JSON.parse(data))
+        //         .then((notes) => [...notes, note])
+        //         .then((newNotes) => this.write(newNotes));
+        // }
 
-    // del(id) {
-    //     return this.getNotes().then(note => {
-    //         note.filter(note => {
-    //             note.id !== id;
+        // del(id) {
+        //     return this.getNotes().then(note => {
+        //         note.filter(note => {
+        //             note.id !== id;
 
-    //         }).then(notes => {
-    //             this.write(notes);
-    // });
+        //         }).then(notes => {
+        //             this.write(notes);
+        // });
 
+    }
 }
 module.exports = new Store();
 
