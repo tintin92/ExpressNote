@@ -14,7 +14,7 @@
 
   ## Installation
   Run this to install and get started
-  <pre><code>npm i, npm inquirer, npm uuid, deployed to heroku</code></pre>
+  <pre><code>npm i, npm express, npm inquirer, npm uuid, deployed to heroku</code></pre>
 
 
   ## Usage 
