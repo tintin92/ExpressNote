@@ -29,8 +29,7 @@ class Store {
         return this.getNotes()
             .then((notes) => notes.filter((note) => note.id !== id))
             .then((exNotes) => {
-                console.log(exNotes);
-                this.write(exNotes);
+            this.write(exNotes);
             });
     }
 }
