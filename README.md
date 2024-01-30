@@ -5,16 +5,19 @@
   
   ## Table of Contents
   
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Credits](#credit)
-  * [License](#license)
-  * [Tests](#test)
-  * [Questions](#questions) 
+- [NoteMon Taker Application ](#notemon-taker-application-)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
   ## Installation
   Run this to install and get started
-  <pre><code>npm i, npm express, npm inquirer, npm uuid, deployed to heroku</code></pre>
+  <pre><code>npm i</code></pre>
 
 
   ## Usage 
