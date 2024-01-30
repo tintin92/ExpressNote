@@ -1,37 +1,32 @@
-const uuid = require("uuid");
 const fs = require("fs");
 const util = require("util");
-const { stringify } = require("querystring");
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 //Store and retrieve notes using our very own API   
 
 class Store {
-
     read() {
         return readFileAsync("db/db.json", "utf-8");
     }
     write(note) {
         return writeFileAsync("db/db.json", JSON.stringify(note));
     }
-    addNote(note) {
-        return this.read()
-            .then((data) => JSON.parse(data))
-            .then((notes) => [...notes, note])
-            .then((newNotes) => this.write(newNotes));
+    async addNote(note) {
+        const data = await this.read();
+        const notes = JSON.parse(data);
+        const newNotes = [...notes, note];
+        return await this.write(newNotes);
     }
-
-    getNotes() {
-        return this.read().then((notes) => JSON.parse(notes));
+    async getNotes() {
+        const notes = await this.read();
+        return JSON.parse(notes);
     }
-
-    del(id) {
-        return this.getNotes()
-            .then((notes) => notes.filter((note) => note.id !== id))
-            .then((exNotes) => {
-            this.write(exNotes);
-            });
+    async del(id) {
+        const notes = await this.getNotes();
+        const exNotes = notes.filter((note) => note.id !== id);
+        this.write(exNotes);
     }
 }
+
 module.exports = new Store();
 
